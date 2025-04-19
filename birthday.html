@@ -35,7 +35,6 @@
       font-size: 1.5rem;
     }
 
-    /* Floating hearts */
     .heart {
       position: absolute;
       width: 20px;
@@ -61,7 +60,6 @@
       left: -10px;
       top: 0;
     }
-
     @keyframes float {
       0% {
         transform: translateY(0) rotate(45deg);
@@ -95,12 +93,13 @@
     }
   </script>
 
-  <!-- Music (optional) -->
+  <!-- Music -->
   <audio id="bg-music" src="your-music.mp3" loop></audio>
   <script>
     const urlParams = new URLSearchParams(window.location.search);
     if (urlParams.get("music") === "true") {
-      document.getElementById("bg-music").play().catch(() => {
+      const audio = document.getElementById("bg-music");
+      audio.play().catch(() => {
         console.log("Autoplay blocked by browser.");
       });
     }
