@@ -97,7 +97,17 @@
     <div class="flame"></div>
   </div>
 
-  <button id="goToBirthday">Now the real surprise... 💖</button>
+  <button id="goToBirthday">Now the real surprise is waiting for you Madam Ji... 💖</button>
+<script>
+  // Preserve ?music=true if it exists
+  const params = new URLSearchParams(window.location.search);
+  const hasMusic = params.get("music") === "true";
+  const button = document.getElementById("goToBirthday");
 
+  button.addEventListener("click", () => {
+    const url = hasMusic ? "birthday.html?music=true" : "birthday.html";
+    window.location.href = url;
+  });
+</script>
   <!-- Confetti popper -->
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.
