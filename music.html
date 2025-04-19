@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -47,7 +48,7 @@
         console.log("Music started");
         setTimeout(() => {
           window.location.href = "cake.html?music=true";
-        }, 3000); // 3 seconds delay before going to cake
+        }, 3000); // delay before redirect
       }).catch(err => {
         console.log("Autoplay failed:", err);
         window.location.href = "cake.html?music=true";
