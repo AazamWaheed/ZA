@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Let’s Cut the Cake 🎂</title>
+  <style>
+    body {
+      background: linear-gradient(to top, #fbc2eb, #a6c1ee);
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      color: #333;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+
+    .cake {
+      width: 120px;
+      height: 160px;
+      background: #ffb347;
+      border-radius: 10px;
+      position: relative;
+      animation: bounce 2s infinite;
+      margin-bottom: 30px;
+    }
+
+    .cake::before {
+      content: '';
+      position: absolute;
+      top: -30px;
+      left: 35px;
+      width: 50px;
+      height: 30px;
+      background: #fff;
+      border-radius: 25px 25px 0 0;
+    }
+
+    .candle {
+      position: absolute;
+      top: -40px;
+      left: 55px;
+      width: 10px;
+      height: 20px;
+      background: #444;
+    }
+
+    .flame {
+      position: absolute;
+      top: -50px;
+      left: 56px;
+      width: 8px;
+      height: 15px;
+      background: orange;
+      border-radius: 50%;
+      animation: flicker 0.6s infinite alternate;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    @keyframes flicker {
+      from { transform: scale(1); opacity: 1; }
+      to { transform: scale(1.2); opacity: 0.8; }
+    }
+
+    button {
+      padding: 12px 25px;
+      font-size: 1.1rem;
+      border: none;
+      border-radius: 8px;
+      background-color: #ff416c;
+      color: white;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background-color: #ff1c4d;
+    }
+  </style>
+</head>
+<body>
+  <h1>Let’s cut the cake, Madam Ji 🎂</h1>
+  <div class="cake">
+    <div class="candle"></div>
+    <div class="flame"></div>
+  </div>
+  <button onclick="location.href='birthday.html'">Now the real surprise... 💖</button>
+</body>
+</html>
