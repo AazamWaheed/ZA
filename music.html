@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,43 +16,9 @@
       justify-content: center;
       align-items: center;
     }
-    h1 { font-size: 2.2rem; margin-bottom: 20px; }
+    h1 {
+      font-size: 2.2rem;
+      margin-bottom: 20px;
+    }
     button {
-      margin: 10px;
-      padding: 12px 25px;
-      font-size: 1.1rem;
-      border: none;
-      border-radius: 8px;
-      background: #ff4b2b;
-      color: white;
-      cursor: pointer;
-    }
-    button:hover {
-      background: #ff416c;
-    }
-  </style>
-</head>
-<body>
-  <h1>Would you like to play a special song with your surprise? 🎶</h1>
-  
-  <button onclick="playAndGo()">Yes, play it! 🎵</button>
-  <button onclick="location.href='cake.html'">No thanks 😊</button>
-
-  <audio id="bg-music" src="your-music.mp3" autoplay></audio>
-
-  <script>
-    function playAndGo() {
-      const music = document.getElementById("bg-music");
-      music.play().then(() => {
-        console.log("Music started");
-        setTimeout(() => {
-          window.location.href = "cake.html?music=true";
-        }, 3000); // delay before redirect
-      }).catch(err => {
-        console.log("Autoplay failed:", err);
-        window.location.href = "cake.html?music=true";
-      });
-    }
-  </script>
-</body>
-</html>
+      margin: 10px
