@@ -2,43 +2,57 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Happy Birthday Madam Ji ❤️❤️</title>
+  <title>Happy Birthday 💖</title>
   <style>
     body {
       margin: 0;
-      padding: 40px 20px;
-      background: linear-gradient(to right, #fceabb, #f8b500);
+      padding: 0;
+      background: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%);
       font-family: 'Segoe UI', sans-serif;
       color: #333;
-      text-align: center;
       overflow-x: hidden;
     }
 
-    .container {
-      max-width: 700px;
-      margin: 0 auto;
+    .wrapper {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       padding: 40px 20px;
-      background: #ffffffaa;
-      border-radius: 20px;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
+
+    .message-box {
+      max-width: 800px;
+      background: rgba(255, 255, 255, 0.95);
+      padding: 50px 30px;
+      border-radius: 25px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      text-align: center;
+      animation: fadeIn 1.5s ease-out;
     }
 
     h1 {
       font-size: 2.8rem;
-      margin-bottom: 25px;
-      color: #ff416c;
+      margin-bottom: 30px;
+      color: #e91e63;
     }
 
     p {
       font-size: 1.3rem;
-      line-height: 1.8;
-      margin-bottom: 25px;
+      line-height: 1.9;
+      margin-bottom: 20px;
     }
 
     .quote {
       font-style: italic;
-      color: #b30059;
       font-size: 1.4rem;
+      color: #ad1457;
+      margin-top: 20px;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     /* Floating hearts */
@@ -46,7 +60,7 @@
       position: absolute;
       width: 20px;
       height: 20px;
-      background: red;
+      background: #ff4b2b;
       transform: rotate(45deg);
       animation: float 6s infinite ease-in;
       opacity: 0.7;
@@ -57,20 +71,13 @@
       content: '';
       width: 20px;
       height: 20px;
-      background: red;
+      background: #ff4b2b;
       border-radius: 50%;
       position: absolute;
     }
 
-    .heart::before {
-      top: -10px;
-      left: 0;
-    }
-
-    .heart::after {
-      left: -10px;
-      top: 0;
-    }
+    .heart::before { top: -10px; left: 0; }
+    .heart::after { left: -10px; top: 0; }
 
     @keyframes float {
       0% { transform: translateY(0) rotate(45deg); opacity: 0.8; }
@@ -79,20 +86,20 @@
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>🎂 Happy Birthday, Madam Ji 💖</h1>
-    <p>
-      Today is the day the world got a little brighter, a little kinder, and a lot more beautiful — because you were born. 🌸<br><br>
-      I made this just to remind you how deeply you're appreciated and endlessly loved. You deserve joy, laughter, and love every single day.
-    </p>
-    <p class="quote">
-      "In a world full of stars, you're the one my heart always finds."
-    </p>
+  <div class="wrapper">
+    <div class="message-box">
+      <h1>🎉 Happy Birthday, My Love 💖</h1>
+      <p id="msg">
+        <!-- We'll insert your personal message here -->
+        [Your beautiful message goes here...]
+      </p>
+      <p class="quote">"You are my today and all of my tomorrows."</p>
+    </div>
   </div>
 
-  <!-- Floating hearts -->
+  <!-- Floating hearts animation -->
   <script>
-    for (let i = 0; i < 25; i++) {
+    for (let i = 0; i < 30; i++) {
       const heart = document.createElement('div');
       heart.className = 'heart';
       heart.style.left = Math.random() * 100 + 'vw';
@@ -101,7 +108,7 @@
     }
   </script>
 
-  <!-- Music playback -->
+  <!-- Music player -->
   <audio id="bg-music" src="your-music.mp3" loop></audio>
   <script>
     const urlParams = new URLSearchParams(window.location.search);
