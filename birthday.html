@@ -95,14 +95,22 @@
 
   <!-- Music -->
   <audio id="bg-music" src="your-music.mp3" loop></audio>
-  <script>
-    const urlParams = new URLSearchParams(window.location.search);
-    if (urlParams.get("music") === "true") {
-      const audio = document.getElementById("bg-music");
-      audio.play().catch(() => {
-        console.log("Autoplay blocked by browser.");
-      });
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+    const params = new URLSearchParams(window.location.search);
+    const shouldPlay = params.get('music') === 'true';
+
+    if (shouldPlay) {
+      const music = document.getElementById('bg-music');
+      // Must be triggered in a user gesture context or may be blocked
+      setTimeout(() => {
+        music.play().catch(err => {
+          console.log("Autoplay blocked by browser: ", err);
+        });
+      }, 500);
     }
-  </script>
+  });
+</script>
+
 </body>
 </html>
