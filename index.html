@@ -2,24 +2,40 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Happy Birthday!</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Something for You</title>
+  <style>
+    body {
+      background: linear-gradient(to right, #fbc2eb, #a6c1ee);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      font-family: 'Segoe UI', sans-serif;
+      color: #333;
+      text-align: center;
+    }
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 30px;
+    }
+    button {
+      padding: 15px 30px;
+      font-size: 1.2rem;
+      border: none;
+      border-radius: 8px;
+      background-color: #ff6f91;
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    button:hover {
+      background-color: #ff3f6c;
+    }
+  </style>
 </head>
 <body>
-  <div class="container">
-    <h1>🎂 Happy Birthday, My Sunshine! 🌻</h1>
-    <p class="message">
-      On this special day, I just wanted to remind you how incredibly amazing you are. 
-      Thank you for lighting up my world like nobody else.<br><br>
-      Wishing you endless smiles, hugs, and everything your heart desires. 💖
-    </p>
-    <p class="from">With all my love,<br>— Your Secret Admirer</p>
-  </div>
-
-  <audio autoplay loop>
-    <source src="your-song.mp3" type="audio/mpeg">
-    Your browser does not support the audio element.
-  </audio>
+  <h1>Do you want to see what I made for you?</h1>
+  <button onclick="location.href='surprise.html'">Yes, show me 💖</button>
 </body>
 </html>
