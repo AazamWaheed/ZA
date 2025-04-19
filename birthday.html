@@ -2,39 +2,46 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Happy Birthday Aaliya ❤️</title>
+  <title>Happy Birthday Madam Ji ❤️❤️</title>
   <style>
     body {
       margin: 0;
-      padding: 0;
+      padding: 40px 20px;
       background: linear-gradient(to right, #fceabb, #f8b500);
       font-family: 'Segoe UI', sans-serif;
-      overflow: hidden;
       color: #333;
       text-align: center;
+      overflow-x: hidden;
     }
+
     .container {
-      position: relative;
-      top: 30%;
-      transform: translateY(-30%);
-      padding: 0 20px;
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 40px 20px;
+      background: #ffffffaa;
+      border-radius: 20px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
     }
+
     h1 {
       font-size: 2.8rem;
-      margin-bottom: 20px;
+      margin-bottom: 25px;
+      color: #ff416c;
     }
+
     p {
       font-size: 1.3rem;
-      max-width: 600px;
-      margin: 0 auto 30px;
-      line-height: 1.6;
+      line-height: 1.8;
+      margin-bottom: 25px;
     }
+
     .quote {
       font-style: italic;
       color: #b30059;
-      font-size: 1.5rem;
+      font-size: 1.4rem;
     }
 
+    /* Floating hearts */
     .heart {
       position: absolute;
       width: 20px;
@@ -44,7 +51,9 @@
       animation: float 6s infinite ease-in;
       opacity: 0.7;
     }
-    .heart::before, .heart::after {
+
+    .heart::before,
+    .heart::after {
       content: '';
       width: 20px;
       height: 20px;
@@ -52,34 +61,33 @@
       border-radius: 50%;
       position: absolute;
     }
+
     .heart::before {
       top: -10px;
       left: 0;
     }
+
     .heart::after {
       left: -10px;
       top: 0;
     }
+
     @keyframes float {
-      0% {
-        transform: translateY(0) rotate(45deg);
-        opacity: 0.8;
-      }
-      100% {
-        transform: translateY(-800px) rotate(45deg);
-        opacity: 0;
-      }
+      0% { transform: translateY(0) rotate(45deg); opacity: 0.8; }
+      100% { transform: translateY(-800px) rotate(45deg); opacity: 0; }
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>🎂 Happy Birthday, Aaliya 💖</h1>
+    <h1>🎂 Happy Birthday, Madam Ji 💖</h1>
     <p>
-      Today is the day the world got a little brighter, a little kinder, and a lot more beautiful — because you were born. 🌸 <br><br>
-      I made this just to remind you how deeply you're appreciated and endlessly loved.
+      Today is the day the world got a little brighter, a little kinder, and a lot more beautiful — because you were born. 🌸<br><br>
+      I made this just to remind you how deeply you're appreciated and endlessly loved. You deserve joy, laughter, and love every single day.
     </p>
-    <p class="quote">"In a world full of stars, you're the one my heart always finds."</p>
+    <p class="quote">
+      "In a world full of stars, you're the one my heart always finds."
+    </p>
   </div>
 
   <!-- Floating hearts -->
@@ -93,24 +101,16 @@
     }
   </script>
 
-  <!-- Music -->
+  <!-- Music playback -->
   <audio id="bg-music" src="your-music.mp3" loop></audio>
-<script>
-  window.addEventListener('DOMContentLoaded', () => {
-    const params = new URLSearchParams(window.location.search);
-    const shouldPlay = params.get('music') === 'true';
-
-    if (shouldPlay) {
-      const music = document.getElementById('bg-music');
-      // Must be triggered in a user gesture context or may be blocked
-      setTimeout(() => {
-        music.play().catch(err => {
-          console.log("Autoplay blocked by browser: ", err);
-        });
-      }, 500);
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get("music") === "true") {
+      const audio = document.getElementById("bg-music");
+      audio.play().catch(() => {
+        console.log("Autoplay blocked by browser.");
+      });
     }
-  });
-</script>
-
+  </script>
 </body>
 </html>
