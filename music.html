@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Play Music?</title>
+  <style>
+    body {
+      background: linear-gradient(to right, #a18cd1, #fbc2eb);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      font-family: 'Segoe UI', sans-serif;
+      text-align: center;
+      color: #333;
+    }
+    h1 {
+      font-size: 2.2rem;
+      margin-bottom: 20px;
+    }
+    button {
+      margin: 10px;
+      padding: 12px 25px;
+      font-size: 1.1rem;
+      border: none;
+      border-radius: 8px;
+      background: #ff4b2b;
+      color: white;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    button:hover {
+      background: #ff416c;
+    }
+  </style>
+</head>
+<body>
+  <h1>Would you like to play a special song with your surprise? 🎶</h1>
+  <button onclick="location.href='birthday.html?music=true'">Yes, play it! 🎵</button>
+  <button onclick="location.href='birthday.html'">No thanks 😊</button>
+</body>
+</html>
