@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,6 +15,7 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
+      overflow: hidden;
     }
     h1 { font-size: 2.5rem; margin-bottom: 20px; }
     .cake {
@@ -81,16 +81,32 @@
     <div class="flame"></div>
   </div>
   <button id="goToBirthday">Now the real surprise... 💖</button>
+
+  <!-- Confetti -->
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
   <script>
     confetti({ particleCount: 200, spread: 120, origin: { y: 0.6 } });
+
     const params = new URLSearchParams(window.location.search);
     const hasMusic = params.get("music") === "true";
     const button = document.getElementById("goToBirthday");
+
+    // Forward the param
     button.addEventListener("click", () => {
       const url = hasMusic ? "birthday.html?music=true" : "birthday.html";
       window.location.href = url;
     });
+
+    // Auto-play music if music=true
+    if (hasMusic) {
+      const audio = new Audio("your-music.mp3");
+      audio.loop = true;
+      setTimeout(() => {
+        audio.play().catch(err => {
+          console.log("Autoplay blocked:", err);
+        });
+      }, 300); // slight delay
+    }
   </script>
 </body>
 </html>
