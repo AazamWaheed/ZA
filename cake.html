@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,57 +12,20 @@
       color: #333;
       height: 100vh;
       margin: 0;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
       overflow: hidden;
     }
-    h1 { font-size: 2.5rem; margin-bottom: 20px; }
-    .cake {
-      width: 120px;
-      height: 160px;
-      background: #ffb347;
-      border-radius: 10px;
-      position: relative;
+    h1 {
+      font-size: 2.5rem;
+      margin: 30px 0 20px;
+    }
+    .cake-img {
+      width: 280px;
+      margin-bottom: 20px;
       animation: bounce 2s infinite;
-      margin-bottom: 30px;
-    }
-    .cake::before {
-      content: '';
-      position: absolute;
-      top: -30px;
-      left: 35px;
-      width: 50px;
-      height: 30px;
-      background: #fff;
-      border-radius: 25px 25px 0 0;
-    }
-    .candle {
-      position: absolute;
-      top: -40px;
-      left: 55px;
-      width: 10px;
-      height: 20px;
-      background: #444;
-    }
-    .flame {
-      position: absolute;
-      top: -50px;
-      left: 56px;
-      width: 8px;
-      height: 15px;
-      background: orange;
-      border-radius: 50%;
-      animation: flicker 0.6s infinite alternate;
     }
     @keyframes bounce {
       0%, 100% { transform: translateY(0); }
       50% { transform: translateY(-10px); }
-    }
-    @keyframes flicker {
-      from { transform: scale(1); opacity: 1; }
-      to { transform: scale(1.2); opacity: 0.8; }
     }
     button {
       padding: 12px 25px;
@@ -71,33 +35,60 @@
       background-color: #ff416c;
       color: white;
       cursor: pointer;
+      margin-top: 10px;
+    }
+
+    /* Balloons */
+    .balloon {
+      position: absolute;
+      bottom: -100px;
+      width: 40px;
+      height: 60px;
+      background: radial-gradient(circle, pink 40%, red 100%);
+      border-radius: 50% 50% 50% 50%;
+      animation: floatBalloon 10s infinite;
+      opacity: 0.7;
+    }
+
+    @keyframes floatBalloon {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-120vh); }
     }
   </style>
 </head>
 <body>
   <h1>Let’s cut the cake, Madam Ji 🎂</h1>
-  <div class="cake">
-    <div class="candle"></div>
-    <div class="flame"></div>
-  </div>
+
+  <!-- 3D Cake GIF -->
+  <img src="https://media.giphy.com/media/l41lVsYDBC0UVQJCE/giphy.gif" alt="Birthday Cake" class="cake-img">
+
   <button id="goToBirthday">Now the real surprise... 💖</button>
 
-  <!-- Confetti -->
+  <!-- Confetti popper -->
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
   <script>
     confetti({ particleCount: 200, spread: 120, origin: { y: 0.6 } });
 
+    // Floating balloons
+    for (let i = 0; i < 12; i++) {
+      let b = document.createElement('div');
+      b.className = 'balloon';
+      b.style.left = Math.random() * 100 + 'vw';
+      b.style.animationDuration = (5 + Math.random() * 5) + 's';
+      document.body.appendChild(b);
+    }
+
+    // Redirect with or without music param
     const params = new URLSearchParams(window.location.search);
     const hasMusic = params.get("music") === "true";
     const button = document.getElementById("goToBirthday");
 
-    // Forward the param
     button.addEventListener("click", () => {
       const url = hasMusic ? "birthday.html?music=true" : "birthday.html";
       window.location.href = url;
     });
 
-    // Auto-play music if music=true
+    // Play music if ?music=true
     if (hasMusic) {
       const audio = new Audio("your-music.mp3");
       audio.loop = true;
@@ -105,7 +96,7 @@
         audio.play().catch(err => {
           console.log("Autoplay blocked:", err);
         });
-      }, 300); // slight delay
+      }, 300);
     }
   </script>
 </body>
